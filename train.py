@@ -7,21 +7,26 @@ from train_class.model import Discriminator, Generator
 from train_class.load_model import build_network
 from train_class.train_model import train
 
-img_size = 128
-data_dir = 'train_face/'
-model_name = f'{img_size}_3'
+###  SET PARAMETERS  ###
+########################
+
+img_size = 128  # size of the generated images (img_size x img_size)
+data_dir = 'train_face/'  # directory with training dataset (images must be in the jpg format)
+model_name = f'{img_size}_3'  # specify the model name
 
 batch_size = 128
 
-d_conv_dim = 64
-g_conv_dim = 100
-z_size = 100
+d_conv_dim = 64  # number of convolutional layers for the discriminator
+g_conv_dim = 100  # number of convolutional layers for the generator
+z_size = 100  # size of the input vector for the generator
 
-lr = 0.0004
-betas = [0.5, 0.999]
+lr = 0.0004  # learning rate
+betas = [0.5, 0.999]  # parameters for optimizers
 
-n_epochs = 5
-on_load = True
+n_epochs = 5  # number of epochs
+on_load = False  # load the pretrained model to train it more
+
+########################
 
 if __name__ == "__main__":
     # load data
